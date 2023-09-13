@@ -80,6 +80,7 @@ function controlCheckResult() {
   const [numberOfInstances, instancesURLs] = reblogCheckData;
 
   outputView.setReblogInstances(numberOfInstances);
+  outputView.resetReblogURLs();
   outputView.setReblogURLs(instancesURLs);
   outputView.showResult('positive');
 }
@@ -99,11 +100,11 @@ function controlStepBackward() {
 
 function init() {
   sessionView.addHandlerSessionWatch(controlSessionWatch);
-  sessionView.addHandlerAttributeWatch(controlStepWatch);
+  sessionView.addHandlerStepWatch(controlStepWatch);
   sessionView.addHandlerStoreScroll(controlStoreScroll);
+  sessionView.addHandlerStepBackward(controlStepBackward);
   stepOneView.addHandlerBlognameForm(controlBlognameForm);
   stepTwoView.addHandlerPostForm(controlPostForm);
-  stepTwoView.addHandlerStepBackward(controlStepBackward);
 }
 
 init();

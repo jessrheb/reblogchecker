@@ -19,7 +19,7 @@ class SessionView extends View {
     window.addEventListener('load', handler);
   }
 
-  addHandlerAttributeWatch(handler) {
+  addHandlerStepWatch(handler) {
     const observer = new MutationObserver(handler);
     observer.observe(this.mainScreen, {
       attributeFilter: ['data-state'],
@@ -29,6 +29,10 @@ class SessionView extends View {
 
   addHandlerStoreScroll(handler) {
     document.addEventListener('scroll', handler, { passive: true });
+  }
+
+  addHandlerStepBackward(handler) {
+    this.buttonTag.addEventListener('click', handler);
   }
 
   stepWatch(mutationList) {

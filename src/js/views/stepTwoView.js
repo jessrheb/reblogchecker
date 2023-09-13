@@ -4,7 +4,6 @@ class StepTwoView extends View {
   activeStep = 'step-two';
   activeScreen = document.querySelector('#step-two');
   stepForm = document.querySelector('.post-form');
-  buttonTag = document.querySelector('.button-tag');
 
   constructor() {
     super();
@@ -13,6 +12,7 @@ class StepTwoView extends View {
 
   addHandlerPostForm(handler) {
     this.stepForm.addEventListener('submit', (event) => {
+      this.resetScreen();
       event.preventDefault();
 
       const formData = new FormData(event.target);
@@ -20,10 +20,6 @@ class StepTwoView extends View {
 
       handler(postInput);
     });
-  }
-
-  addHandlerStepBackward(handler) {
-    this.buttonTag.addEventListener('click', handler);
   }
 
   setCheckingForBlogname(blogname) {

@@ -32,6 +32,14 @@ class OutputView extends View {
     });
   }
 
+  resetReblogURLs() {
+    if (this.postURLs.hasChildNodes()) {
+      this.postURLs
+        .querySelectorAll('a')
+        .forEach((element) => this.postURLs.removeChild(element));
+    }
+  }
+
   showResult(outcome) {
     this.outputWindow.forEach(
       (output) =>

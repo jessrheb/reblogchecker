@@ -5,11 +5,12 @@ export default class View {
   stepHeading = document.querySelector('.step-heading');
   iconHeading = document.querySelector('.icon-heading');
   checkingForWindow = document.querySelector('.checking-for');
+  buttonTag = document.querySelector('.button-tag');
 
   addHandlerScreenReset(activeScreen = this.activeScreen) {
     activeScreen
-      .querySelectorAll('input')
-      .forEach(() => addEventListener('input', this.resetScreen.bind(this)));
+      .querySelector('input')
+      .addEventListener('input', this.resetScreen.bind(this));
   }
 
   stepScreenInit(activeStep = this.activeStep) {
