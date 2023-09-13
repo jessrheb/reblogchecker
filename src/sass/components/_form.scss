@@ -1,0 +1,175 @@
+form {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: $--layout-gutter-width;
+
+  & .form-heading {
+    align-items: flex-start;
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    gap: calc($--very-small-spacing / 2);
+    justify-content: center;
+  }
+
+  & .form-container {
+    display: flex;
+    flex-direction: column;
+    gap: $--small-spacing;
+    transition: all 0.3s ease-in-out;
+    width: $--form-width;
+
+    & .input-container {
+      align-items: center;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: center;
+
+      & .input {
+        align-items: center;
+        background-color: $--background-input;
+        border: solid $--accent-grey;
+        border-radius: $--border-radius 0rem 0rem $--border-radius;
+        border-width: 0.05rem 0rem 0.05rem 0.05rem;
+        cursor: text;
+        display: flex;
+        flex-direction: row;
+        flex-grow: 3;
+        gap: $--very-small-spacing;
+        height: $--input-container-height;
+        justify-content: center;
+        padding: $--very-small-spacing $--small-spacing;
+        transition: all 0.3s ease-in-out;
+
+        &::before {
+          color: $--accent-grey;
+          content: '';
+          font-family: 'bootstrap-icons';
+          font-size: 1.667vw;
+        }
+
+        &:focus-within,
+        & input:focus {
+          background-color: $--background-neutral;
+          outline: auto;
+        }
+
+        & input {
+          border: none;
+          height: $--normal-spacing;
+          transition: inherit;
+          width: 100%;
+
+          &:focus {
+            outline: none;
+          }
+        }
+
+        &:hover {
+          filter: brightness(98%) contrast(99%);
+        }
+
+        &[data-valid='true'],
+        & input[data-valid='true'],
+        &[data-valid='false'],
+        & input[data-valid='false'] {
+          transition: all 0.3s ease-in-out;
+        }
+
+        &[data-valid='true'],
+        & input[data-valid='true'] {
+          background-color: $--background-positive;
+          color: darken($--positive, 20%);
+        }
+
+        &[data-valid='true'] {
+          border-color: $--positive;
+
+          &::before {
+            animation: validIndication 0.8s ease-in-out normal;
+            color: $--positive;
+          }
+        }
+
+        &[data-valid='false'],
+        & input[data-valid='false'] {
+          background-color: $--background-negative;
+          color: $--warning;
+        }
+
+        &[data-valid='false'] {
+          border-color: $--negative;
+
+          &::before {
+            animation: warningVibration 0.8s ease-in-out normal;
+            color: $--negative;
+          }
+        }
+      }
+    }
+
+    & .message {
+      align-items: center;
+      align-self: stretch;
+      border-radius: $--border-radius;
+      display: flex;
+      gap: $--very-small-spacing;
+      width: 100%;
+
+      padding: $--very-small-spacing $--very-small-spacing $--very-small-spacing
+        $--small-spacing;
+      &::before {
+        color: $--accent-purple;
+        content: '';
+        flex-basis: 4%;
+        font-family: 'bootstrap-icons';
+        font-size: 1.667vw;
+        font-weight: normal;
+        justify-self: center;
+      }
+
+      & p {
+        flex-basis: 96%;
+      }
+
+      &[data-type='warning'] {
+        background-color: $--wildcard-yellow;
+
+        &::before {
+          content: '\F33A';
+        }
+      }
+
+      &[data-type='neutral'] {
+        background-color: $--accent-yellow;
+
+        &::before {
+          content: '\F468';
+        }
+      }
+
+      &[data-type='error'] {
+        background-color: $--warning;
+        opacity: 0;
+        position: relative;
+        right: -100%;
+        transition: all 0.3s ease-in-out;
+        visibility: hidden;
+
+        &::before {
+          color: $--background-negative;
+          content: '\F622';
+        }
+
+        &[data-active='true'] {
+          animation: warningShake 0.6s ease-in-out 0.3s;
+          opacity: 1;
+          right: 0;
+          visibility: visible;
+        }
+      }
+    }
+  }
+}

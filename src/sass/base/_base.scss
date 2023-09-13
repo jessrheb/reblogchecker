@@ -1,0 +1,38 @@
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+*:disabled {
+  filter: brightness(50%) contrast(90%) sepia(100%);
+  opacity: 0.9;
+  pointer-events: none;
+  transition: all 0.3s ease-in-out;
+  user-select: none;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+body {
+  align-content: center;
+  align-items: center;
+  background-color: $--background-main;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: stretch;
+  overflow-x: hidden;
+  width: 100vw;
+
+  &::selection {
+    background-color: $--accent-grey;
+    color: $--text-dark;
+  }
+}

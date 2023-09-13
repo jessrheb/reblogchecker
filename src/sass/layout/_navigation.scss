@@ -1,0 +1,30 @@
+nav {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  gap: $--layout-gutter-width;
+  justify-content: flex-end;
+  padding: $--layout-gutter-width;
+  width: 100%;
+  z-index: 2;
+
+  & img {
+    width: 100%;
+  }
+
+  & menu {
+    align-content: flex-end;
+    align-items: flex-end;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: $--layout-gutter-width;
+    justify-content: flex-end;
+    width: 100%;
+
+    & li {
+      display: inline;
+      list-style-type: none;
+    }
+  }
+}

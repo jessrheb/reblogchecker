@@ -1,0 +1,103 @@
+button {
+  align-items: center;
+  background-size: 200%;
+  border: none;
+  border-radius: 0rem $--border-radius $--border-radius 0rem;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  height: $--input-container-height;
+  justify-content: center;
+  outline-offset: 0.3rem;
+  padding: 0rem $--layout-gutter-width;
+  z-index: 1;
+
+  background-image: linear-gradient(
+    90deg,
+    $--primary-blue 0%,
+    $--primary-blue 50%,
+    $--secondary-blue 50%,
+    $--secondary-blue 100%
+  );
+  transition: background-position 0.3s cubic-bezier(0.47, 0.1, 1, 0.63),
+    color linear;
+  &:hover {
+    background-position: -100% 100%;
+  }
+
+  &:active {
+    background-color: $--accent-purple;
+    background-image: none;
+  }
+
+  &.hero-page-button {
+    align-items: center;
+    border-radius: $--border-radius;
+    justify-content: center;
+    width: fit-content;
+  }
+
+  &.button-tag {
+    align-items: center;
+    border-radius: $--layout-gutter-width;
+    display: flex;
+    flex-direction: row;
+    gap: 0.4rem;
+    height: 4.4rem;
+    justify-content: center;
+    padding: $--small-spacing $--medium-spacing;
+    width: fit-content;
+
+    background-image: linear-gradient(
+      90deg,
+      $--accent-yellow 0%,
+      $--accent-yellow 50%,
+      $--warning 50%,
+      $--warning 100%
+    );
+    transition: background-position 0.3s cubic-bezier(0.47, 0.1, 1, 0.63),
+      color 0.3s ease-in-out;
+
+    &::after {
+      color: $--accent-grey;
+      content: '\F659';
+      font-family: 'bootstrap-icons';
+      font-size: 1.2rem;
+      margin-top: -0.09rem;
+      transition: inherit;
+    }
+
+    &:hover {
+      &::after {
+        color: $--negative;
+      }
+    }
+
+    &:active {
+      background-color: $--negative;
+
+      &::after {
+        color: $--warning;
+      }
+    }
+  }
+
+  &.secondary-button {
+    background-color: transparent;
+    background-image: none;
+    border: thin solid $--text-medium;
+    border-radius: $--border-radius;
+    color: $--text-dark;
+    font-size: 90%;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    &:active {
+      opacity: 1;
+    }
+  }
+}

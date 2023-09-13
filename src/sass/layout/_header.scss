@@ -1,0 +1,88 @@
+html {
+  & .jessrheb-icon {
+    animation: moveInBottom 0.6s ease-in-out;
+    bottom: 1vw;
+    opacity: 1;
+    position: absolute;
+    right: 1vw;
+    transform: translate(0);
+    transition: all 0.6s ease-in-out;
+    visibility: visible;
+    z-index: 2;
+
+    & img {
+      height: auto;
+      width: 4vw;
+    }
+  }
+
+  &:not([data-scroll='0']) {
+    .jessrheb-icon {
+      opacity: 0;
+      transform: translateY(8rem);
+      visibility: hidden;
+    }
+  }
+
+  header {
+    align-items: center;
+    background-color: $--background-neutral;
+    border-radius: 0vw 0vw 24vw 0vw;
+    display: flex;
+    flex-direction: column;
+    gap: $--large-spacing;
+    height: 100vh;
+    justify-content: flex-start;
+    padding: 0rem $--layout-column-width;
+    width: 100%;
+
+    &::before {
+      content: '';
+      height: 100%;
+      left: 0;
+      position: absolute;
+      width: 100%;
+      z-index: 1;
+
+      background: radial-gradient(
+        50% 50% at 50% 50%,
+        $--wildcard-yellow 0%,
+        transparent 100%
+      );
+    }
+
+    & .hero-page {
+      align-items: flex-start;
+      display: flex;
+      gap: $--large-spacing;
+      justify-content: center;
+      width: 100%;
+      z-index: 2;
+
+      padding: $--large-spacing
+        ($--layout-column-width + $--layout-gutter-width);
+      & .post-mockup {
+        height: 35.5rem;
+        width: 65.7rem;
+
+        & img {
+          animation: levitate 4s ease-in-out infinite alternate;
+        }
+      }
+
+      & .hero-page-container {
+        align-items: flex-start;
+        animation: moveInTop ease-in-out 0.6s;
+        display: flex;
+        flex-direction: column;
+        gap: $--very-small-spacing;
+        justify-content: flex-start;
+        width: fit-content;
+
+        & button:last-child {
+          margin-top: $--layout-gutter-width;
+        }
+      }
+    }
+  }
+}

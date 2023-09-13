@@ -1,0 +1,61 @@
+/* BACKGROUND COLORS */
+
+$--background-main: #fafaf8;
+$--background-input: #ffffff;
+$--background-positive: #ebf3bb;
+$--background-negative: #f3edbb;
+$--background-neutral: #f3f3d8;
+
+/* TEXT COLORS */
+
+$--text-dark: #2d2d29;
+$--text-medium: #645f58;
+$--text-light: #e3e3cb;
+
+/* PRIMARY AND SECONDARY COLORS */
+
+$--primary-blue: #1a1f22;
+$--secondary-blue: #283137;
+
+/* ACCENT COLORS */
+
+$--accent-purple: #2a1a1f;
+$--accent-grey: #d3c89f;
+$--accent-yellow: #f6f1c0;
+$--wildcard-yellow: #f3c75b;
+
+/* INDICATORS */
+
+$--positive: #a2c244;
+$--negative: #db8e62;
+$--warning: #9c3729;
+
+/* TYPOGRAPHY */
+
+$--button-label-font-size: 1.777rem;
+$--small-copy: 1.25rem;
+
+$--normal-line-height: 150%;
+$--small-line-height: 120%;
+$--tiny-line-height: 110%;
+
+/* SPACING */
+
+$--layout-column-width: 9.1rem;
+$--layout-gutter-width: 3.2rem;
+
+$--large-spacing: 6.4rem;
+$--normal-spacing: 2.4rem;
+$--medium-spacing: 2rem;
+$--small-spacing: 1.6rem;
+$--very-small-spacing: 1.2rem;
+
+/* MEASURES */
+
+$--form-width: 43vw;
+$--input-container-height: 5.2rem;
+
+/* MISCELLANEOUS */
+
+$--border-radius: 0.8rem;
+$--loading-spinner-interval: 0.3s;

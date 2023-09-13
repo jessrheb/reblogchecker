@@ -1,0 +1,185 @@
+body,
+button,
+input {
+  color: $--text-dark;
+  font-family: 'Archivo', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 300;
+  line-height: $--normal-line-height;
+
+  strong {
+    font-weight: 600;
+  }
+
+  em {
+    font-style: italic;
+  }
+
+  a,
+  button {
+    font-size: 1.563rem;
+    font-weight: 500;
+    line-height: 100%;
+    text-transform: uppercase;
+  }
+
+  a {
+    background-size: 200%;
+    border-radius: $--border-radius;
+    color: $--primary-blue;
+    padding: 0.3rem;
+    text-decoration: none;
+    transition-delay: 0s, 0.15s;
+
+    background-image: linear-gradient(
+      90deg,
+      transparent 0%,
+      transparent 50%,
+      $--accent-yellow 50%,
+      $--accent-yellow 100%
+    );
+    transition: background-position 0.3s cubic-bezier(0.47, 0.1, 1, 0.63),
+      color 0.2s linear;
+    &:hover {
+      background-position: -100% 100%;
+      color: $--secondary-blue;
+    }
+
+    &:active {
+      background-color: $--wildcard-yellow;
+      background-image: none;
+      color: $--accent-purple;
+    }
+  }
+
+  button {
+    color: $--accent-yellow;
+
+    &:active {
+      color: $--wildcard-yellow;
+    }
+  }
+
+  & .button-tag {
+    color: $--accent-purple;
+    font-size: 90%;
+
+    &:hover {
+      color: $--background-negative;
+    }
+
+    &:active {
+      color: $--background-negative;
+    }
+  }
+
+  h1 {
+    color: $--text-dark;
+    font-size: 5.653rem;
+    font-weight: 600;
+    line-height: 100%;
+    text-transform: capitalize;
+    width: 24vw;
+  }
+
+  h2,
+  label {
+    color: $--accent-purple;
+    font-size: 2.441rem;
+    font-weight: 500;
+    line-height: 130%;
+    text-transform: capitalize;
+  }
+
+  h3 {
+    color: $--primary-blue;
+    font-size: 1.953rem;
+    font-weight: 400;
+
+    &.hero-page-subheading {
+      width: 40.3rem;
+    }
+  }
+
+  h4 {
+    font-weight: 600;
+    line-height: 100%;
+    text-transform: uppercase;
+    transform: scale(1.2, 1);
+  }
+
+  input::placeholder {
+    color: $--text-medium;
+  }
+
+  & .sublabel {
+    color: $--text-medium;
+    font-size: $--small-copy;
+    font-weight: 500;
+    line-height: $--tiny-line-height;
+  }
+
+  & .message {
+    color: $--text-dark;
+    font-size: 1.25rem;
+    font-weight: 500;
+    line-height: $--tiny-line-height;
+
+    &[data-type='error'] {
+      color: $--background-negative;
+      font-weight: 600;
+    }
+  }
+
+  & .hgroup {
+    & h2,
+    & h3 {
+      line-height: 80%;
+    }
+
+    & a {
+      padding: 0.1rem 0.3rem;
+      background-image: linear-gradient(
+        90deg,
+        transparent 0%,
+        transparent 50%,
+        lighten($--positive, 15%) 50%,
+        lighten($--positive, 15%) 100%
+      );
+      &:hover {
+        color: darken($--positive, 40%);
+      }
+
+      &:active {
+        background-color: $--positive;
+        background-image: none;
+        color: darken($--positive, 40%);
+      }
+    }
+
+    & .instances {
+      font-weight: 500;
+    }
+  }
+
+  footer {
+    color: $--accent-yellow;
+    font-size: $--small-copy;
+    font-weight: 500;
+    line-height: $--small-line-height;
+
+    & a {
+      background-image: none;
+      color: $--wildcard-yellow;
+      font-size: inherit;
+      font-weight: 600;
+      padding: 0rem;
+      text-transform: none;
+
+      &:hover {
+        background-image: none;
+        color: $--accent-grey;
+      }
+    }
+  }
+}

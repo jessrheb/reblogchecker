@@ -1,0 +1,15 @@
+footer {
+  align-items: center;
+  background-color: $--accent-purple;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: $--medium-spacing ($--layout-column-width + $--layout-gutter-width);
+  width: 100%;
+  z-index: 1;
+
+  & a:hover,
+  & a:active {
+    background-color: transparent;
+  }
+}
