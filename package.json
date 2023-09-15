@@ -2,7 +2,7 @@
   "name": "reblogchecker",
   "version": "1.0.0",
   "description": "A handy tool for Tumblr users to check whether a given post is currently in their blog or not.",
-  "main": "script.js",
+  "default": "index.html",
   "devDependencies": {
     "@babel/cli": "^7.21.5",
     "@babel/core": "^7.21.8",
