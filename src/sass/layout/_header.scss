@@ -26,7 +26,8 @@ html {
 
   header {
     align-items: center;
-    background-color: $--background-neutral;
+    background-image: url('../img/reblog-checker-background.svg');
+    background-size: cover;
     border-radius: 0vw 0vw 24vw 0vw;
     display: flex;
     flex-direction: column;
@@ -36,34 +37,16 @@ html {
     padding: 0rem $--layout-column-width;
     width: 100%;
 
-    &::before {
-      content: '';
-      height: 100%;
-      left: 0;
-      position: absolute;
-      width: 100%;
-      z-index: 1;
-
-      background: radial-gradient(
-        50% 50% at 50% 50%,
-        $--wildcard-yellow 0%,
-        transparent 100%
-      );
-    }
-
     & .hero-page {
-      align-items: flex-start;
+      align-items: center;
       display: flex;
-      gap: $--large-spacing;
-      justify-content: center;
+      justify-content: flex-start;
       width: 100%;
       z-index: 2;
 
-      padding: $--large-spacing
-        ($--layout-column-width + $--layout-gutter-width);
+      padding: $--large-spacing $--layout-gutter-width;
       & .post-mockup {
-        height: 35.5rem;
-        width: 65.7rem;
+        width: 85.7rem;
 
         & img {
           animation: levitate 4s ease-in-out infinite alternate;
@@ -75,12 +58,11 @@ html {
         animation: moveInTop ease-in-out 0.6s;
         display: flex;
         flex-direction: column;
-        gap: $--very-small-spacing;
+        gap: $--normal-spacing;
         justify-content: flex-start;
-        width: fit-content;
 
         & button:last-child {
-          margin-top: $--layout-gutter-width;
+          margin-top: $--medium-spacing;
         }
       }
     }

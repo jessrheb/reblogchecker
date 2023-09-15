@@ -25,7 +25,7 @@
 
 @keyframes levitate {
   0% {
-    filter: drop-shadow(0 1rem .8rem #0003);
+    filter: drop-shadow(0 1rem .8rem #0006);
     transform: translateY(.5rem);
   }
 
@@ -171,38 +171,47 @@
 
 @keyframes bounceThumbs {
   0% {
-    animation-timing-function: ease-in;
-    transform: translateY(-4.5rem);
+    transform: translateX(-48px);
+  }
+
+  25% {
+    transform: translateX(0);
   }
 
   40% {
-    animation-timing-function: ease-in;
-    transform: translateY(-2.4rem);
+    transform: translateX(-26px);
+  }
+
+  55% {
+    transform: translateX(0);
   }
 
   65% {
-    animation-timing-function: ease-in;
-    transform: translateY(-1.2rem);
+    transform: translateX(-13px);
+  }
+
+  75% {
+    transform: translateX(0);
   }
 
   82% {
-    animation-timing-function: ease-in;
-    transform: translateY(-.6rem);
+    transform: translateX(-6.5px);
+  }
+
+  87% {
+    transform: translateX(0);
   }
 
   93% {
-    animation-timing-function: ease-in;
-    transform: translateY(-.4rem);
+    transform: translateX(-4px);
   }
 
-  25%, 55%, 75%, 87% {
-    animation-timing-function: ease-out;
-    transform: translateY(0);
+  98% {
+    transform: translateX(0);
   }
 
   100% {
-    animation-timing-function: ease-out;
-    transform: translateY(0);
+    transform: translateX(0);
   }
 }
 
@@ -258,6 +267,16 @@ body em, button em, input em {
   font-style: italic;
 }
 
+body mark, button mark, input mark {
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  color: #2a1a1f;
+  background: linear-gradient(to right, #f3c85bb3, #f3c85b 4%, #f3c85bb3);
+  border-radius: .8rem;
+  margin: 0 -.2em;
+  padding: 0 .2em;
+}
+
 body a, body button, button a, button button, input a, input button {
   text-transform: uppercase;
   font-size: 1.563rem;
@@ -304,12 +323,11 @@ body .button-tag:hover, button .button-tag:hover, input .button-tag:hover, body 
 }
 
 body h1, button h1, input h1 {
-  color: #2d2d29;
-  text-transform: capitalize;
-  width: 24vw;
+  color: #2a1a1f;
+  text-transform: uppercase;
   font-size: 5.653rem;
   font-weight: 600;
-  line-height: 100%;
+  line-height: 110%;
 }
 
 body h2, body label, button h2, button label, input h2, input label {
@@ -327,14 +345,14 @@ body h3, button h3, input h3 {
 }
 
 body h3.hero-page-subheading, button h3.hero-page-subheading, input h3.hero-page-subheading {
-  width: 40.3rem;
+  width: 24.427vw;
 }
 
 body h4, button h4, input h4 {
   text-transform: uppercase;
+  font-size: 1.953rem;
   font-weight: 600;
   line-height: 100%;
-  transform: scale(1.2, 1);
 }
 
 body input::placeholder, button input::placeholder, input input::placeholder {
@@ -707,7 +725,7 @@ form .form-container .message[data-type="error"][data-active="true"] {
 }
 
 .output[data-active="true"]:before {
-  animation: 2s ease-in-out bounceThumbs;
+  animation: 1s ease-in-out bounceThumbs;
 }
 
 .output[data-result="positive"] {
@@ -767,7 +785,8 @@ html:not([data-scroll="0"]) .jessrheb-icon {
 }
 
 html header {
-  background-color: #f3f3d8;
+  background-image: url("reblog-checker-background.519e3af5.svg");
+  background-size: cover;
   border-radius: 0 0 24vw;
   flex-direction: column;
   justify-content: flex-start;
@@ -779,29 +798,17 @@ html header {
   display: flex;
 }
 
-html header:before {
-  content: "";
-  z-index: 1;
-  background: radial-gradient(50% 50%, #f3c75b 0%, #0000 100%);
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  left: 0;
-}
-
 html header .hero-page {
   z-index: 2;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 6.4rem;
+  justify-content: flex-start;
+  align-items: center;
   width: 100%;
-  padding: 6.4rem 12.3rem;
+  padding: 6.4rem 3.2rem;
   display: flex;
 }
 
 html header .hero-page .post-mockup {
-  width: 65.7rem;
-  height: 35.5rem;
+  width: 85.7rem;
 }
 
 html header .hero-page .post-mockup img {
@@ -812,15 +819,13 @@ html header .hero-page .hero-page-container {
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  gap: 1.2rem;
-  width: -moz-fit-content;
-  width: fit-content;
+  gap: 2.4rem;
   animation: .6s ease-in-out moveInTop;
   display: flex;
 }
 
 html header .hero-page .hero-page-container button:last-child {
-  margin-top: 3.2rem;
+  margin-top: 2rem;
 }
 
 main {
@@ -963,7 +968,8 @@ main #step-one {
 }
 
 main #step-one .input:before {
-  content: "";
+  content: "";
+  font-family: Material Symbols Outlined;
 }
 
 main #step-two {
@@ -1005,7 +1011,7 @@ nav {
 }
 
 nav img {
-  width: 100%;
+  width: 28%;
 }
 
 nav menu {

@@ -146,9 +146,8 @@ main {
 
     & .input {
       &::before {
-        content: '\F4E1';
-
-        /* \F4D0 */
+        content: '\e0e6';
+        font-family: 'Material Symbols Outlined';
       }
     }
   }

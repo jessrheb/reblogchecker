@@ -639,6 +639,7 @@ function controlCheckResult() {
     }
     const [numberOfInstances, instancesURLs] = reblogCheckData;
     (0, _outputViewJsDefault.default).setReblogInstances(numberOfInstances);
+    (0, _outputViewJsDefault.default).resetReblogURLs();
     (0, _outputViewJsDefault.default).setReblogURLs(instancesURLs);
     (0, _outputViewJsDefault.default).showResult("positive");
 }
@@ -652,11 +653,11 @@ function controlStepBackward() {
 }
 function init() {
     (0, _sessionViewJsDefault.default).addHandlerSessionWatch(controlSessionWatch);
-    (0, _sessionViewJsDefault.default).addHandlerAttributeWatch(controlStepWatch);
+    (0, _sessionViewJsDefault.default).addHandlerStepWatch(controlStepWatch);
     (0, _sessionViewJsDefault.default).addHandlerStoreScroll(controlStoreScroll);
+    (0, _sessionViewJsDefault.default).addHandlerStepBackward(controlStepBackward);
     (0, _stepOneViewJsDefault.default).addHandlerBlognameForm(controlBlognameForm);
     (0, _stepTwoViewJsDefault.default).addHandlerPostForm(controlPostForm);
-    (0, _stepTwoViewJsDefault.default).addHandlerStepBackward(controlStepBackward);
 }
 init();
 
@@ -970,8 +971,9 @@ class View {
     stepHeading = document.querySelector(".step-heading");
     iconHeading = document.querySelector(".icon-heading");
     checkingForWindow = document.querySelector(".checking-for");
+    buttonTag = document.querySelector(".button-tag");
     addHandlerScreenReset(activeScreen = this.activeScreen) {
-        activeScreen.querySelectorAll("input").forEach(()=>addEventListener("input", this.resetScreen.bind(this)));
+        activeScreen.querySelector("input").addEventListener("input", this.resetScreen.bind(this));
     }
     stepScreenInit(activeStep = this.activeStep) {
         [
@@ -1042,21 +1044,18 @@ class StepTwoView extends (0, _viewDefault.default) {
     activeStep = "step-two";
     activeScreen = document.querySelector("#step-two");
     stepForm = document.querySelector(".post-form");
-    buttonTag = document.querySelector(".button-tag");
     constructor(){
         super();
         this.addHandlerScreenReset();
     }
     addHandlerPostForm(handler) {
         this.stepForm.addEventListener("submit", (event)=>{
+            this.resetScreen();
             event.preventDefault();
             const formData = new FormData(event.target);
             const postInput = Object.fromEntries(formData).postForm;
             handler(postInput);
         });
-    }
-    addHandlerStepBackward(handler) {
-        this.buttonTag.addEventListener("click", handler);
     }
     setCheckingForBlogname(blogname) {
         this.buttonTag.innerText = blogname;
@@ -1084,7 +1083,7 @@ class SessionView extends (0, _viewDefault.default) {
     addHandlerSessionWatch(handler) {
         window.addEventListener("load", handler);
     }
-    addHandlerAttributeWatch(handler) {
+    addHandlerStepWatch(handler) {
         const observer = new MutationObserver(handler);
         observer.observe(this.mainScreen, {
             attributeFilter: [
@@ -1097,6 +1096,9 @@ class SessionView extends (0, _viewDefault.default) {
         document.addEventListener("scroll", handler, {
             passive: true
         });
+    }
+    addHandlerStepBackward(handler) {
+        this.buttonTag.addEventListener("click", handler);
     }
     stepWatch(mutationList) {
         const stepIcons = [
@@ -1157,6 +1159,9 @@ class OutputView extends (0, _viewDefault.default) {
             this.setURLAttributes(aHref, hrefAttributes);
             this.postURLs.appendChild(aHref);
         });
+    }
+    resetReblogURLs() {
+        if (this.postURLs.hasChildNodes()) this.postURLs.querySelectorAll("a").forEach((element)=>this.postURLs.removeChild(element));
     }
     showResult(outcome) {
         this.outputWindow.forEach((output)=>output.dataset.result === outcome && output.setAttribute("data-active", true));

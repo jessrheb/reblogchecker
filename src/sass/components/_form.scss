@@ -116,10 +116,10 @@ form {
       border-radius: $--border-radius;
       display: flex;
       gap: $--very-small-spacing;
-      width: 100%;
-
       padding: $--very-small-spacing $--very-small-spacing $--very-small-spacing
         $--small-spacing;
+      width: 100%;
+
       &::before {
         color: $--accent-purple;
         content: '';
