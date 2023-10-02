@@ -4,7 +4,7 @@ footer {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: $--medium-spacing ($--layout-column-width + $--layout-gutter-width);
+  padding: $--medium-spacing 8vw;
   width: 100%;
   z-index: 1;
 

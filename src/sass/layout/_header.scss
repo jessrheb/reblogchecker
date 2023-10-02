@@ -28,6 +28,7 @@ html {
     align-items: center;
     background-image: url('../img/reblog-checker-background.svg');
     background-size: cover;
+    background-position: center;
     border-radius: 0vw 0vw 24vw 0vw;
     display: flex;
     flex-direction: column;
@@ -64,6 +65,144 @@ html {
         & button:last-child {
           margin-top: $--medium-spacing;
         }
+      }
+    }
+  }
+}
+
+@media (max-width: 980px) {
+  html header {
+    gap: 0;
+    height: fit-content;
+
+    & .jessrheb-icon {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    & nav {
+      & .logo img {
+        width: 6.4vw;
+      }
+    }
+
+    & .hero-page {
+      flex-direction: column;
+      gap: $--large-spacing;
+
+      & .hero-page-container {
+        align-items: center;
+        order: 2;
+
+        & h1,
+        & h3 {
+          text-align: center;
+        }
+
+        & h3 {
+          width: auto;
+        }
+      }
+
+      & .post-mockup {
+        order: 1;
+        width: 56vw;
+      }
+    }
+  }
+}
+
+@media (max-width: 680px) {
+  header {
+    & nav {
+      align-items: flex-start;
+      gap: 0;
+      padding: 6vw;
+
+      & menu {
+        flex-direction: column;
+        gap: 0;
+        transition: all 0.3s ease-in-out;
+
+        & li {
+          opacity: 0;
+          visibility: hidden;
+          transition: all 0.3s ease-in-out;
+        }
+
+        &::before {
+          content: '\F479';
+          color: $--accent-purple;
+          font-family: 'bootstrap-icons';
+          font-size: 6.4vw;
+          margin-bottom: 2vw;
+        }
+
+        &:hover {
+          gap: 1.6vw;
+
+          & li {
+            opacity: 1;
+            visibility: visible;
+          }
+        }
+      }
+    }
+
+    h1 {
+      font-size: 8vw;
+    }
+  }
+
+  main {
+    & .checking-for {
+      width: 50vw;
+
+      & h4 {
+        font-size: 100%;
+        white-space: nowrap;
+      }
+    }
+
+    & form .form-container {
+      & .input-container {
+        flex-direction: column;
+        gap: calc($--very-small-spacing / 2);
+
+        & .input {
+          width: 100%;
+          border: solid $--accent-grey 0.05rem;
+          border-radius: $--border-radius;
+        }
+
+        & button {
+          border-radius: $--border-radius;
+          width: 100%;
+        }
+      }
+    }
+
+    & .output {
+      padding: $--layout-gutter-width 6vw;
+
+      &[data-result]::before {
+        content: '';
+      }
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  main {
+    & .checking-for {
+      width: 60vw;
+
+      & h4 {
+        font-size: 90%;
+      }
+
+      & button {
+        font-size: 80%;
       }
     }
   }

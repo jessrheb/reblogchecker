@@ -9,7 +9,7 @@ nav {
   z-index: 2;
 
   & img {
-    width: 28%;
+    width: 3.2vw;
   }
 
   & menu {
@@ -17,7 +17,7 @@ nav {
     align-items: flex-end;
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     gap: $--layout-gutter-width;
     justify-content: flex-end;
     width: 100%;
