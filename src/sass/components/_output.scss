@@ -41,10 +41,6 @@
   &[data-active='true'] {
     left: 0;
     visibility: visible;
-
-    &::before {
-      animation: bounceThumbs 1s ease-in-out;
-    }
   }
 
   &[data-result='positive'] {

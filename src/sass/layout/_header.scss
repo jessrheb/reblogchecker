@@ -113,7 +113,9 @@ html {
 }
 
 @media (max-width: 680px) {
-  header {
+  html header {
+    padding: 0rem;
+
     & nav {
       align-items: flex-start;
       gap: 0;
@@ -154,8 +156,34 @@ html {
     }
   }
 
-  main {
+  html main {
+    border-radius: 64vw 0vw 0vw 0vw;
+
+    & .step-heading {
+      height: 14vw;
+      width: 14vw;
+
+      &::before {
+        margin: calc(0.325vw * 2);
+      }
+
+      & .icon-heading,
+      &[data-state^='step-'] .icon-heading {
+        font-size: calc(14vw - (0.625vw * 4));
+        padding: calc((0.625vw * 2));
+      }
+
+      & .loading-spinner,
+      &[data-state^='step-'] .loading-spinner {
+        border-width: 0.8vw;
+        height: calc(14vw - (0.625vw * 4));
+        margin: calc((0.625vw * 2));
+        width: calc(14vw - (0.625vw * 4));
+      }
+    }
+
     & .checking-for {
+      margin-top: 20vw;
       width: 50vw;
 
       & h4 {
@@ -164,29 +192,42 @@ html {
       }
     }
 
-    & form .form-container {
-      & .input-container {
-        flex-direction: column;
-        gap: calc($--very-small-spacing / 2);
+    & .steps-container {
+      margin-top: 20vw;
 
-        & .input {
-          width: 100%;
-          border: solid $--accent-grey 0.05rem;
-          border-radius: $--border-radius;
-        }
+      & form .form-container {
+        & .input-container {
+          flex-direction: column;
+          gap: calc($--very-small-spacing / 2);
 
-        & button {
-          border-radius: $--border-radius;
-          width: 100%;
+          & .input {
+            width: 100%;
+            border: solid $--accent-grey 0.05rem;
+            border-radius: $--border-radius;
+          }
+
+          & button {
+            border-radius: $--border-radius;
+            width: 100%;
+          }
         }
       }
     }
 
     & .output {
-      padding: $--layout-gutter-width 6vw;
+      padding: 6vw;
+
+      & .hgroup {
+        z-index: 2;
+      }
 
       &[data-result]::before {
-        content: '';
+        position: absolute;
+        font-size: 24vw;
+        opacity: 0.3;
+        z-index: 1;
+        left: 50%;
+        transform: translate(-50%, 0);
       }
     }
   }

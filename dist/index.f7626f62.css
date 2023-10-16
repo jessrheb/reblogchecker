@@ -169,52 +169,6 @@
   }
 }
 
-@keyframes bounceThumbs {
-  0% {
-    transform: translateX(-48px);
-  }
-
-  25% {
-    transform: translateX(0);
-  }
-
-  40% {
-    transform: translateX(-26px);
-  }
-
-  55% {
-    transform: translateX(0);
-  }
-
-  65% {
-    transform: translateX(-13px);
-  }
-
-  75% {
-    transform: translateX(0);
-  }
-
-  82% {
-    transform: translateX(-6.5px);
-  }
-
-  87% {
-    transform: translateX(0);
-  }
-
-  93% {
-    transform: translateX(-4px);
-  }
-
-  98% {
-    transform: translateX(0);
-  }
-
-  100% {
-    transform: translateX(0);
-  }
-}
-
 *, :after, :before {
   box-sizing: inherit;
   margin: 0;
@@ -233,6 +187,7 @@
 html {
   scroll-behavior: smooth;
   font-size: 62.5%;
+  overflow-x: hidden;
 }
 
 body {
@@ -724,10 +679,6 @@ form .form-container .message[data-type="error"][data-active="true"] {
   left: 0;
 }
 
-.output[data-active="true"]:before {
-  animation: 1s ease-in-out bounceThumbs;
-}
-
 .output[data-result="positive"] {
   background-color: #ebf3bb;
 }
@@ -870,25 +821,29 @@ html header .hero-page .hero-page-container button:last-child {
 }
 
 @media (width <= 680px) {
-  header nav {
+  html header {
+    padding: 0;
+  }
+
+  html header nav {
     align-items: flex-start;
     gap: 0;
     padding: 6vw;
   }
 
-  header nav menu {
+  html header nav menu {
     flex-direction: column;
     gap: 0;
     transition: all .3s ease-in-out;
   }
 
-  header nav menu li {
+  html header nav menu li {
     opacity: 0;
     visibility: hidden;
     transition: all .3s ease-in-out;
   }
 
-  header nav menu:before {
+  html header nav menu:before {
     content: "";
     color: #2a1a1f;
     margin-bottom: 2vw;
@@ -896,50 +851,89 @@ html header .hero-page .hero-page-container button:last-child {
     font-size: 6.4vw;
   }
 
-  header nav menu:hover {
+  html header nav menu:hover {
     gap: 1.6vw;
   }
 
-  header nav menu:hover li {
+  html header nav menu:hover li {
     opacity: 1;
     visibility: visible;
   }
 
-  header h1 {
+  html header h1 {
     font-size: 8vw;
   }
 
-  main .checking-for {
-    width: 50vw;
+  html main {
+    border-radius: 64vw 0 0;
   }
 
-  main .checking-for h4 {
+  html main .step-heading {
+    width: 14vw;
+    height: 14vw;
+  }
+
+  html main .step-heading:before {
+    margin: .65vw;
+  }
+
+  html main .step-heading .icon-heading, html main .step-heading[data-state^="step-"] .icon-heading {
+    padding: 1.25vw;
+    font-size: 11.5vw;
+  }
+
+  html main .step-heading .loading-spinner, html main .step-heading[data-state^="step-"] .loading-spinner {
+    border-width: .8vw;
+    width: 11.5vw;
+    height: 11.5vw;
+    margin: 1.25vw;
+  }
+
+  html main .checking-for {
+    width: 50vw;
+    margin-top: 20vw;
+  }
+
+  html main .checking-for h4 {
     white-space: nowrap;
     font-size: 100%;
   }
 
-  main form .form-container .input-container {
+  html main .steps-container {
+    margin-top: 20vw;
+  }
+
+  html main .steps-container form .form-container .input-container {
     flex-direction: column;
     gap: .6rem;
   }
 
-  main form .form-container .input-container .input {
+  html main .steps-container form .form-container .input-container .input {
     border: .05rem solid #d3c89f;
     border-radius: .8rem;
     width: 100%;
   }
 
-  main form .form-container .input-container button {
+  html main .steps-container form .form-container .input-container button {
     border-radius: .8rem;
     width: 100%;
   }
 
-  main .output {
-    padding: 3.2rem 6vw;
+  html main .output {
+    padding: 6vw;
   }
 
-  main .output[data-result]:before {
-    content: "";
+  html main .output .hgroup {
+    z-index: 2;
+  }
+
+  html main .output[data-result]:before {
+    opacity: .3;
+    z-index: 1;
+    font-size: 24vw;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
   }
 }
 
